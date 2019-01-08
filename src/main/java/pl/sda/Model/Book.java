@@ -6,7 +6,7 @@ public class Book extends Product {
 
     int numberOfPaces;
 
-    public Book(UUID id, String name, double price, int numberOfPaces) {
+    public Book(int id, String name, double price, int numberOfPaces) {
         super(id, name, price);
         if (numberOfPaces > 0 )
         {
