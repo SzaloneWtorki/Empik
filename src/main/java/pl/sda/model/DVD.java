@@ -6,8 +6,9 @@ import java.util.UUID;
 public class DVD extends Product {
 
     private int dateOfProduction;
+    private double discountPrice = super.getPrice() - ((LocalDate.now().getYear() - dateOfProduction) / 100.0);
 
-    public DVD(UUID id, String name, double price, int dateOfProduction) {
+    public DVD(int id, String name, double price, int dateOfProduction) {
         super(id, name, price);
         if (dateOfProduction >= 1995 && dateOfProduction <= LocalDate.now().getYear()) {
             this.dateOfProduction = dateOfProduction;
@@ -15,4 +16,10 @@ public class DVD extends Product {
             this.dateOfProduction = 0;
         }
     }
+    @Override
+    public double discount() {
+        return discountPrice;
+    }
+
+
 }

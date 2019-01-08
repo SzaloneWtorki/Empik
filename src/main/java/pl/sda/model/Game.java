@@ -8,8 +8,10 @@ public class Game extends Product {
 
     private GamesProducents gamesProducent;
 
-    public Game(UUID id, String name, double price, GamesProducents gamesProducent) {
+    public Game(int id, String name, double price, GamesProducents gamesProducent) {
         super(id, name, price);
         this.gamesProducent = gamesProducent;
     }
+
+
 }
