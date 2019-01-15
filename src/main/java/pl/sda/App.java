@@ -15,6 +15,7 @@ public class App
 
         basket.add(new Book(12, "Potter", 12.36, 36));
         basket.add(new Cd(6, "LP", 32.99, 2015));
+        basket.add(new Book(7, "Harry P", 199.99, 200));
 
         basket.summary();
 
