@@ -37,7 +37,7 @@ public class Basket {
         System.out.printf("%3s | %-10s | %5s | %20s", "id", "name", "price", "price after discount\n");
 
         for (int i = 0; i < basket.size(); i++) {
-            System.out.printf("%3s | %-10s | %5s | %20s\n", basket.get(i).getId(), basket.get(i).getName(), basket.get(i).getPrice(), "price after discount\n");
+            System.out.printf("%3s | %-10s | %5s | %20s\n", basket.get(i).getId(), basket.get(i).getName(), basket.get(i).getPrice(), basket.get(i).discount());
         }
 
         System.out.println(priceSum());

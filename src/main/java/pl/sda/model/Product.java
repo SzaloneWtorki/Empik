@@ -15,7 +15,9 @@ public class Product {
     }
 
     public double discount() {
-        return 0;
+
+        return price;
     }
+
 
 }
