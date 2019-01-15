@@ -24,10 +24,24 @@ public class Busket {
 
     public double priceSum() {
         double price = 0;
-        for (double i = 0.0; i < basket.size(); i++) {
+        for (int i = 0; i < basket.size(); i++) {
             price += basket.get(i).getPrice();
 
         }
         return price;
     }
+
+    public void summary() {
+        System.out.printf("%3s | %-10s | %5s | %20s", "id", "name", "price", "price after discount\n");
+
+        for (int i = 0; i < basket.size(); i++) {
+            System.out.printf("%3s | %-10s | %5s | %20s \n", basket.get(i).getId(), basket.get(i).getName(), basket.get(i).getPrice(), basket.get(i).discount());
+        }
+        System.out.println("Summa" + priceSum());
+    }
 }
+
+
+
+
+

@@ -4,7 +4,12 @@ import java.rmi.server.UID;
 
 public class Vinyl extends Product {
 
-    public Vinyl(UID id, String name, double price) {
+    public Vinyl(int id, String name, double price) {
         super(id, name, price);
+    }
+
+    @Override
+    public double discount() {
+        return 0;
     }
 }

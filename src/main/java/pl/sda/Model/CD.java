@@ -4,17 +4,30 @@ import java.rmi.server.UID;
 import java.time.LocalDate;
 
 public class CD extends Product {
-    private int dateOfProduct;
 
-    public CD(UID id, String name, double price, int dateOfProduct) {
+
+    private int dateOfProduction;
+    private double discountPrice = super.getPrice() -super.getPrice()*((LocalDate.now().getYear() - dateOfProduction) / 100);
+
+
+    public CD(int id, String name, double price, int dateOfProduction) {
         super(id, name, price);
-        if (dateOfProduct >= 1982 && dateOfProduct <= LocalDate.now().getYear()) {
-            this.dateOfProduct = dateOfProduct;
 
+        if (dateOfProduction >= 1982 && dateOfProduction <= LocalDate.now().getYear()) {
+            this.dateOfProduction = dateOfProduction;
         } else {
-            this.dateOfProduct = 0;
+            this.dateOfProduction = 0;
         }
     }
 
-
+    @Override
+    public double discount() {
+        return discountPrice;
+    }
 }
+
+
+
+
+
+
