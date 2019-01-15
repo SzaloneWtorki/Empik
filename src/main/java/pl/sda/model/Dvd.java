@@ -6,7 +6,6 @@ import java.util.UUID;
 public class Dvd extends Product {
 
     private int dateOfProduction;
-    private double discountPrice = super.getPrice() - super.getPrice() * ((LocalDate.now().getYear() - dateOfProduction) / 100.0);
 
     public Dvd(int id, String name, double price, int dateOfProduction) {
         super(id, name, price);
@@ -19,6 +18,6 @@ public class Dvd extends Product {
 
     @Override
     public double discount() {
-        return discountPrice;
+        return getPrice()  - getPrice() * (( LocalDate.now().getYear() - dateOfProduction) / 100.0);
     }
 }
