@@ -1,6 +1,7 @@
 package pl.sda.service;
 
 import pl.sda.model.Cd;
+import pl.sda.model.Poster;
 import pl.sda.model.Product;
 
 import java.util.HashMap;
@@ -28,19 +29,30 @@ public class Basket {
     public double priceSum() {
         double price = 0;
         for (int i = 0; i < basket.size(); i++) {
-            price += basket.get(i).getPrice();
+            price += basket.get(i).discount();
         }
         return price;
     }
 
     public void summary() {
         System.out.printf("%3s | %-10s | %5s | %20s", "id", "name", "price", "price after discount\n");
-
         for (int i = 0; i < basket.size(); i++) {
             System.out.printf("%3s | %-10s | %5s | %20s\n", basket.get(i).getId(), basket.get(i).getName(), basket.get(i).getPrice(), basket.get(i).discount());
         }
-
         System.out.println(priceSum());
     }
 
-}
+    public void posterDiscount() {
+        int numberOfPosters = 0;
+        double theLowestPrice = 0;
+        for (int i = 0; i < basket.size(); i++) {
+            if (basket.get(i) instanceof Poster) {
+                numberOfPosters++;
+                    if (basket.get(i).getPrice() < theLowestPrice) {
+                        theLowestPrice = basket.get(i).getPrice();
+                    }
+                }
+            }
+            
+        }
+    }
