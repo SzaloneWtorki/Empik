@@ -7,7 +7,7 @@ public class CD extends Product {
 
 
     private int dateOfProduction;
-    private double discountPrice = super.getPrice() -super.getPrice()*((LocalDate.now().getYear() - dateOfProduction) / 100);
+    private double discountPrice = getPrice() - getPrice() * ((LocalDate.now().getYear() - dateOfProduction) / 100.0);
 
 
     public CD(int id, String name, double price, int dateOfProduction) {
@@ -22,6 +22,7 @@ public class CD extends Product {
 
     @Override
     public double discount() {
+        double discountPrice = getPrice() - getPrice() * ((LocalDate.now().getYear() - dateOfProduction) / 100.0);
         return discountPrice;
     }
 }
