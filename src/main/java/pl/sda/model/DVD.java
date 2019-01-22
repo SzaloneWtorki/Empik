@@ -1,25 +1,23 @@
-package pl.sda.model;
+package pl.sda.Model;
 
+import java.rmi.server.UID;
 import java.time.LocalDate;
-import java.util.UUID;
 
 public class DVD extends Product {
+    private int dateOfProduct;
 
-    private int dateOfProduction;
-    private double discountPrice = super.getPrice() - super.getPrice()*((LocalDate.now().getYear() - dateOfProduction) / 100.0);
+    private double discountPrice = super.getPrice() - super.getPrice()*((LocalDate.now().getYear() - dateOfProduct) / 100);
 
-    public DVD(int id, String name, double price, int dateOfProduction) {
+    public DVD(int id, String name, double price, int dateOfProduct) {
         super(id, name, price);
-        if (dateOfProduction >= 1995 && dateOfProduction <= LocalDate.now().getYear()) {
-            this.dateOfProduction = dateOfProduction;
-        } else {
-            this.dateOfProduction = 0;
-        }
+        if (dateOfProduct >= 1995 && dateOfProduct <= LocalDate.now().getYear()) {
+            this.dateOfProduct = dateOfProduct;
+
+        } else {this.dateOfProduct = 0;}
     }
+
     @Override
     public double discount() {
-        return discountPrice;
+        return 0;
     }
-
-
 }

@@ -1,10 +1,14 @@
-package pl.sda.model;
+package pl.sda.Model;
 
-import java.util.UUID;
+import java.rmi.server.UID;
 
-public class Newspaper extends Product {
+public class Newspaper extends Product  {
     public Newspaper(int id, String name, double price) {
         super(id, name, price);
     }
 
+    @Override
+    public double discount() {
+        return 0;
+    }
 }

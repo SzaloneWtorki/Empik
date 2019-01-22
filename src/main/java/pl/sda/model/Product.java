@@ -1,6 +1,8 @@
-package pl.sda.model;
+package pl.sda.Model;
 
 import lombok.Data;
+
+import java.rmi.server.UID;
 
 @Data
 public class Product {
@@ -17,7 +19,7 @@ public class Product {
     public double discount() {
 
         return price;
-    }
 
+    }
 
 }
